@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>關西生日之旅 2026</title>
+
+  <style>
+    :root {
+      --red: #c9485b;
+      --dark-red: #9f3042;
+      --cream: #fffaf4;
+      --white: #ffffff;
+      --text: #342d2f;
+      --muted: #74696c;
+      --gold: #d69b45;
+      --border: #eaded5;
+      --green: #43836b;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        "PingFang HK",
+        "Noto Sans TC",
+        "Microsoft JhengHei",
+        sans-serif;
+      line-height: 1.7;
+      color: var(--text);
+      background: var(--cream);
+    }
+
+    header {
+      padding: 72px 20px;
+      color: white;
+      text-align: center;
+      background:
+        linear-gradient(rgba(117, 28, 47, 0.72), rgba(117, 28, 47, 0.78)),
+        linear-gradient(135deg, #d77070, #8e2944);
+    }
+
+    header h1 {
+      margin: 0 0 12px;
+      font-size: clamp(2rem, 7vw, 4rem);
+    }
+
+    header p {
+      margin: 7px 0;
+      font-size: 1.08rem;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      padding: 13px 12px;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.96);
+      border-bottom: 1px solid var(--border);
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    nav a {
+      display: inline-block;
+      margin: 0 7px;
+      color: var(--dark-red);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      width: min(100% - 28px, 960px);
+      margin: 35px auto 70px;
+    }
+
+    section {
+      margin-bottom: 34px;
+    }
+
+    h2 {
+      margin-top: 0;
+      color: var(--dark-red);
+    }
+
+    h3 {
+      margin-bottom: 7px;
+      color: var(--dark-red);
+    }
+
+    .card {
+      margin-bottom: 22px;
+      padding: 25px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: 0 7px 20px rgba(71, 44, 47, 0.07);
+    }
+
+    .summary-grid,
+    .location-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 16px;
+    }
+
+    .summary-box,
+    .location-box {
+      padding: 18px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+    }
+
+    .summary-box strong {
+      display: block;
+      color: var(--dark-red);
+      font-size: 1.05rem;
+    }
+
+    .day-label {
+      display: inline-block;
+      padding: 4px 12px;
+      color: white;
+      font-size: 0.9rem;
+      font-weight: bold;
+      background: var(--red);
+      border-radius: 20px;
+    }
+
+    .tag {
+      display: inline-block;
+      margin: 3px 3px 3px 0;
+      padding: 3px 9px;
+      color: var(--dark-red);
+      font-size: 0.84rem;
+      background: #fae7e9;
+      border-radius: 20px;
+    }
+
+    .birthday {
+      border: 2px solid var(--gold);
+      background: linear-gradient(135deg, #fff, #fff8e7);
+    }
+
+    .warning {
+      padding: 16px 18px;
+      color: #6e4b16;
+      background: #fff2cc;
+      border-left: 5px solid var(--gold);
+      border-radius: 8px;
+    }
+
+    .success {
+      padding: 16px 18px;
+      color: #255e4a;
+      background: #e6f5ee;
+      border-left: 5px solid var(--green);
+      border-radius: 8px;
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    ul,
+    ol {
+      padding-left: 23px;
+    }
+
+    li {
+      margin-bottom: 7px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      padding: 11px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+
+    th {
+      color: var(--dark-red);
+      background: #fff5f2;
+    }
+
+    .table-wrapper {
+      overflow-x: auto;
+    }
+
+    footer {
+      padding: 30px 20px;
+      color: white;
+      text-align: center;
+      background: #3f3034;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding: 52px 18px;
+      }
+
+      .card {
+        padding: 19px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>🎂 關西生日之旅</h1>
+    <p>大阪・奈良・京都・神戶</p>
+    <p>2026年12月1日至7日｜二人同行</p>
+    <p>🎉 12月3日生日</p>
+  </header>
+
+  <nav>
+    <a href="#summary">行程資料</a>
+    <a href="#itinerary">每日行程</a>
+    <a href="#locations">地點介紹</a>
+    <a href="#transport">交通預算</a>
+    <a href="#todo">預訂清單</a>
+  </nav>
+
+  <main>
+
+    <section id="summary">
+      <div class="card">
+        <h2>✈️ 旅程資料</h2>
+
+        <div class="summary-grid">
+          <div class="summary-box">
+            <strong>旅行日期</strong>
+            2026年12月1日至7日
+          </div>
+
+          <div class="summary-box">
+            <strong>同行人數</strong>
+            2人
+          </div>
+
+          <div class="summary-box">
+            <strong>抵達航班</strong>
+            國泰航空 CX506<br>
+            香港 → 關西國際機場
+          </div>
+
+          <div class="summary-box">
+            <strong>回程航班</strong>
+            國泰航空 CX569<br>
+            19:25 日本時間起飛
+          </div>
+        </div>
+
+        <p class="warning">
+          酒店完整名稱、住宿日期及 CX506 抵達時間仍然需要確認。
+          請勿在公開網站加入訂位編號、護照號碼或房間資料。
+        </p>
+      </div>
+    </section>
+
+    <section id="itinerary">
+      <h2>🗓️ 每日行程</h2>
+
+      <article class="card">
+        <span class="day-label">第一日</span>
+        <h3>12月1日｜抵達大阪</h3>
+
+        <p>
+          <span class="tag">難波</span>
+          <span class="tag">心齋橋</span>
+          <span class="tag">道頓堀</span>
+        </p>
+
+        <ul>
+          <li>抵達關西國際機場</li>
+          <li>乘搭南海機場急行或特急 Rapi:t 前往難波</li>
+          <li>前往酒店寄存行李及辦理入住</li>
+          <li>遊覽難波、心齋橋及道頓堀</li>
+          <li>晚上欣賞道頓堀運河夜景</li>
+        </ul>
+
+        <p><strong>交通時間：</strong>約35至50分鐘</p>
+        <p><strong>每人交通費：</strong>約 ¥970–1,490</p>
+        <p><strong>餐廳選擇：</strong>難波天婦羅、日式燒肉、黑門市場小食</p>
+      </article>
+
+      <article class="card">
+        <span class="day-label">第二日</span>
+        <h3>12月2日｜大阪環球影城</h3>
+
+        <p>
+          <span class="tag">大阪環球影城</span>
+          <span class="tag">超級任天堂世界</span>
+        </p>
+
+        <ul>
+          <li>先到 Hotel B 寄存行李</li>
+          <li>乘搭 JR 夢咲線前往環球城站</li>
+          <li>大阪環球影城一日遊</li>
+          <li>遊覽超級任天堂世界</li>
+          <li>晚上在 CityWalk 或酒店慶祝生日</li>
+        </ul>
+
+        <p><strong>交通時間：</strong>約20至30分鐘</p>
+        <p><strong>每人來回交通費：</strong>約 ¥380–560</p>
+        <p><strong>餐廳選擇：</strong>奇諾比奧咖啡店、園區餐廳、CityWalk</p>
+      </article>
+
+      <article class="card birthday">
+        <span class="day-label">🎂 生日</span>
+        <h3>12月3日｜奈良生日一日遊</h3>
+
+        <p>
+          <span class="tag">奈良公園</span>
+          <span class="tag">東大寺</span>
+          <span class="tag">浮見堂</span>
+          <span class="tag">春日大社</span>
+        </p>
+
+        <ol>
+          <li>乘近鐵奈良線前往近鐵奈良站</li>
+          <li>在奈良公園使用官方鹿仙貝餵鹿</li>
+          <li>參觀東大寺</li>
+          <li>前往浮見堂散步</li>
+          <li>參觀春日大社</li>
+          <li>返回大阪享用生日晚餐</li>
+        </ol>
+
+        <p><strong>每程時間：</strong>約35至40分鐘</p>
+        <p><strong>每人來回交通費：</strong>約 ¥1,360</p>
+        <p><strong>午餐選擇：</strong>鰻魚飯、柿葉壽司</p>
+        <p><strong>晚餐選擇：</strong>海鮮居酒屋、牛扒或生日餐廳</p>
+      </article>
+
+      <article class="card">
+        <span class="day-label">第四日</span>
+        <h3>12月4日｜京都下午遊</h3>
+
+        <p>
+          <span class="tag">錦市場</span>
+          <span class="tag">清水寺</span>
+          <span class="tag">祇園</span>
+        </p>
+
+        <ol>
+          <li>下午約2時後由大阪前往京都</li>
+          <li>錦市場品嚐京都小食</li>
+          <li>參觀清水寺及周邊古街</li>
+          <li>在祇園及花見小路散步</li>
+          <li>晚餐後返回大阪</li>
+        </ol>
+
+        <p><strong>每程時間：</strong>約30至45分鐘</p>
+        <p><strong>每人來回交通費：</strong>約 ¥820–1,120</p>
+        <p><strong>美食選擇：</strong>錦市場小食、湯豆腐、抹茶甜品</p>
+
+        <p class="warning">
+          下午2時後先由大阪出發，錦市場、清水寺及祇園三個地方可能比較趕。
+          建議出發前確認各景點開放時間。
+        </p>
+      </article>
+
+      <article class="card">
+        <span class="day-label">第五日</span>
+        <h3>12月5日｜神戶及梅田</h3>
+
+        <p>
+          <span class="tag">神戶三宮</span>
+          <span class="tag">北野異人館</span>
+          <span class="tag">神戶港</span>
+          <span class="tag">梅田</span>
+        </p>
+
+        <ul>
+          <li>由大阪前往神戶三宮</li>
+          <li>遊覽神戶異國風情街區</li>
+          <li>享用神戶牛鐵板燒</li>
+          <li>欣賞神戶港夜景</li>
+          <li>視乎時間返回梅田觀光</li>
+        </ul>
+
+        <p><strong>每程時間：</strong>約25至40分鐘</p>
+        <p><strong>每人來回交通費：</strong>約 ¥640–820</p>
+      </article>
+
+      <article class="card">
+        <span class="day-label">第六日</span>
+        <h3>12月6日｜大阪市場及購物</h3>
+
+        <p>
+          <span class="tag">木津市場</span>
+          <span class="tag">黑門市場</span>
+          <span class="tag">梅田</span>
+        </p>
+
+        <ul>
+          <li>早上前往木津市場</li>
+          <li>到黑門市場品嚐大阪美食</li>
+          <li>下午到梅田購物</li>
+          <li>前往梅田藍天大廈觀景台</li>
+          <li>欣賞大阪夜景</li>
+        </ul>
+
+        <p><strong>每人交通費：</strong>約 ¥400–600</p>
+
+        <p class="warning">
+          12月6日是星期日，部分木津市場店舖可能休息，出發前需要確認營業時間。
+        </p>
+      </article>
+
+      <article class="card">
+        <span class="day-label">第七日</span>
+        <h3>12月7日｜最後購物及返回香港</h3>
+
+        <p>
+          <span class="tag">難波</span>
+          <span class="tag">心齋橋</span>
+          <span class="tag">關西國際機場</span>
+        </p>
+
+        <ul>
+          <li>酒店退房及寄存行李</li>
+          <li>難波及心齋橋最後購物</li>
+          <li>返回酒店領取行李</li>
+          <li>前往關西國際機場</li>
+          <li>乘搭 CX569 返回香港</li>
+        </ul>
+
+        <p><strong>航班時間：</strong>19:25 日本時間</p>
+        <p><strong>建議抵達機場：</strong>16:25或之前</p>
+        <p><strong>建議離開難波：</strong>約15:15至15:30</p>
+        <p><strong>每人交通費：</strong>約 ¥1,100–1,800</p>
+      </article>
+    </section>
+
+    <section id="locations">
+      <div class="card">
+        <h2>📍 地點介紹</h2>
+
+        <div class="location-grid">
+          <div class="location-box">
+            <h3>大阪難波</h3>
+            <p>大阪南區主要交通及購物中心，前往道頓堀、心齋橋及關西機場都十分方便。</p>
+          </div>
+
+          <div class="location-box">
+            <h3>心齋橋</h3>
+            <p>大阪著名購物區，有大型百貨公司、藥妝店、服裝店及餐廳。</p>
+          </div>
+
+          <div class="location-box">
+            <h3>道頓堀</h3>
+            <p>以霓虹燈、固力果跑步人招牌、運河夜景及大阪美食聞名。</p>
+          </div>
+
+          <div class="location-box">
+            <h3>大阪環球影城</h3>
+            <p>位於大阪灣區的大型主題樂園，包括超級任天堂世界及不同電影主題園區。</p>
+          </div>
+
+          <div class="location-box">
+            <h3>奈良公園</h3>
+            <p>奈良代表景點，可以見到野生鹿，附近亦有東大寺、春日大社及浮見堂。</p>
+          </div>
+
+          <div class="location-box">
+            <h3>清水寺</h3>
+            <p>京都著名古寺，位於東山區，可以欣賞京都景色及遊覽二年坂、三年坂。</p>
+          </div>
+
+          <div class="location-box">
+            <h3>祇園</h3>
+            <p>京都傳統歷史街區，以花見小路、町家建築及傳統文化聞名。</p>
+          </div>
+
+          <div class="location-box">
+            <h3>錦市場</h3>
+            <p>有「京都人的廚房」之稱，可以品嚐海鮮、漬物、玉子燒及抹茶甜品。</p>
+          </div>
+
+          <div class="location-box">
+            <h3>神戶三宮</h3>
+            <p>神戶市中心主要交通及商業區，前往北野、南京町及神戶港都方便。</p>
+          </div>
+
+          <div class="location-box">
+            <h3>大阪梅田</h3>
+            <p>大阪北區大型商業中心，有百貨公司、購物商場及梅田藍天大廈。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="transport">
+      <div class="card">
+        <h2>🚆 交通預算</h2>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>日期</th>
+                <th>主要交通</th>
+                <th>每人預算</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>12月1日</td>
+                <td>關西機場至難波</td>
+                <td>¥970–1,490</td>
+              </tr>
+
+              <tr>
+                <td>12月2日</td>
+                <td>大阪環球影城往返</td>
+                <td>¥380–560</td>
+              </tr>
+
+              <tr>
+                <td>12月3日</td>
+                <td>奈良往返</td>
+                <td>約 ¥1,360</td>
+              </tr>
+
+              <tr>
+                <td>12月4日</td>
+                <td>京都往返</td>
+                <td>¥820–1,120</td>
+              </tr>
+
+              <tr>
+                <td>12月5日</td>
+                <td>神戶往返</td>
+                <td>¥640–820</td>
+              </tr>
+
+              <tr>
+                <td>12月6日</td>
+                <td>大阪市內交通</td>
+                <td>¥400–600</td>
+              </tr>
+
+              <tr>
+                <td>12月7日</td>
+                <td>難波至關西機場</td>
+                <td>¥1,100–1,800</td>
+              </tr>
+
+              <tr>
+                <th colspan="2">七日合計</th>
+                <th>每人約 ¥5,670–7,750</th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="meta">
+          以上只係初步交通預算，不包括航班、酒店、USJ門票、餐飲、景點門票及購物。
+        </p>
+      </div>
+    </section>
+
+    <section id="todo">
+      <div class="card">
+        <h2>✅ 預訂及確認清單</h2>
+
+        <h3>最優先處理</h3>
+        <ul>
+          <li>☐ 確認及預訂 CX506、CX569 航班</li>
+          <li>☐ 確認所有酒店的完整名稱及入住日期</li>
+          <li>☐ 購買大阪環球影城門票</li>
+          <li>☐ 購買 Express Pass</li>
+          <li>☐ 預訂12月3日生日晚餐</li>
+          <li>☐ 聯絡酒店安排生日驚喜</li>
+        </ul>
+
+        <h3>之後處理</h3>
+        <ul>
+          <li>☐ 預訂神戶牛餐廳</li>
+          <li>☐ 確認京都景點營業時間</li>
+          <li>☐ 確認木津市場星期日營業情況</li>
+          <li>☐ 購買旅遊保險</li>
+          <li>☐ 準備 ICOCA</li>
+          <li>☐ 準備日本上網 SIM 或 eSIM</li>
+        </ul>
+
+        <p class="success">
+          建議將機票及酒店確認文件放在手機、電郵或密碼管理器，
+          唔好上載到公開 GitHub 網站。
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>🎂 關西生日之旅 2026</p>
+    <p>大阪・奈良・京都・神戶</p>
+  </footer>
+
+</body>
+</html>
